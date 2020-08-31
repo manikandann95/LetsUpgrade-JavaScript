@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<body> 
+		<script>
+		console.log("Program to search for a particular character (r) in a string:\n");
+			let str = "Avengers";
+			let index = str.indexOf("r"); 
+			 
+			console.log("Position of char: 'r' in string ",str, "is: "+index);
+
+		console.log("Program to convert minutes to seconds:\n");
+			let minutes = 15;
+			let seconds = 60 * minutes;
+			
+			console.log("Converting "+minutes+" minutes to seconds: "+seconds);
+
+		console.log("Program to search for a element in a array of strings: ");
+
+		let data = ["laptop", "mouse", "keyboard", "monitor", "camera", "mobile", "microphone"];
+			for(let i=0;i<data.length;i++)
+			{	if(data[i].indexOf("mic") > -1)
+				console.log(data[i],"& Position: ",i);
+			};	 
+
+		console.log("Program to display only elements containing 'a' in them from a array:"); 
+			for(let j=0;j<data.length;j++)
+			{	if(data[j].indexOf("a") > -1)
+				console.log(data[j]);
+			};
+		console.log("Print an array in reverse order:"); 
+			for(let j=data.length-1;j>=0;j--)
+				console.log(data[j]);
+					
+		</script>	
+	</body>
+</html>	
+		
+		
