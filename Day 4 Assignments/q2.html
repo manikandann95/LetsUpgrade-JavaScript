@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Copy input text</title>		
+	</head>
+	<body>
+		<h1>INPUT TEXT COPYING<h1>
+ 		<br />	
+		<input type="text" placeholder="Enter Text" class="stmtmanik" />
+		<br/>
+		<button onclick="copytxt()">Copy</button>
+		<br/>
+	 	
+		<input type="text" class="stmtmanik" />
+		<br/>
+		<script>
+			function copytxt() {
+				const ele = document.getElementsByClassName("stmtmanik");
+				ele[1].value = ele[0].value;
+				}
+				
+	 	</script>
+	</body>
+</html>			
