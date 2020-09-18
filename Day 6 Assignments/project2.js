@@ -2,11 +2,12 @@ window.onload = function(){
 
 let buses = [
     {
-      name: "Thor",
-      age: 1500,
-      planet: "Asgard",
-      height: "6.3",
-    }
+      name: "MTC11",
+      source: "Tambaram East",
+      dest: "Velachery",
+      number: 111,
+      passengerCapacity: 80,  
+    },
   ];
 
   if (localStorage.getItem("buses") == null) {
@@ -16,32 +17,26 @@ let buses = [
 
 };
 
-function display(superarray = undefined) {
+function display(myarray = undefined) {
   let tabledata = "";
   let bus;
-  if (superarray == undefined) {
+  if (myarray == undefined) {
     bus = JSON.parse(localStorage.getItem("buses"));
   } else {
-    bus = superarray;
+    bus = myarray;
   }
 
   buses.forEach(function (bus, index) {
     let currentrow = `<tr>
-      <td>${index + 1}</td>
-      <td>${bus.name}</td>
-      <td>${bus.source}</td>
-      <td>${bus.destination}</td>
-      <td>${bus.number}</td>
-      <td>${bus.passengerCapacity}
-      <td>
-      <button onclick='deleteSuperhero(${index})'>delete</button>
-      </td>
-      </tr>`;
-
+                        <td>${index + 1}</td>
+                        <td>${bus.name}</td>
+                        <td>${bus.source}</td>
+                        <td>${bus.dest}</td>
+                        <td>${bus.number}</td>
+                        <td>${bus.passengerCapacity}</td>
+                        </tr>`;
     tabledata += currentrow;
   });
-
-  //document.getElementsByClassName("tdata")[0].innerHTML = tabledata;
     document.getElementById("trows").innerHTML = tabledata;
 }
 display();
@@ -57,7 +52,7 @@ function add(e) {
  
    bus.name = name;
    bus.source=source;
-   bus.destination=dest;
+   bus.dest=dest;
    bus.number=Number(numb);
    bus.passengerCapacity=Number(pass);
 
@@ -71,23 +66,16 @@ function add(e) {
   document.getElementById("source").value = "";
   document.getElementById("dest").value = "";
   document.getElementById("numb").value = "";
-
   document.getElementById("pass").value = "";
-
-
 }
 
-
-
-
-function searchByDest() {
-  let searchValue = document.getElementById("searchDest").value;
+function search() {
+  let searchValue = document.getElementById("search").value;
   let buses = JSON.parse(localStorage.getItem("buses"));
   let newdata = buses.filter(function (bus) {
     return (
-      bus.name.toUpperCase().indexOf(searchValue.toUpperCase()) != -1
+      bus.name.toLowerCase().indexOf(searchValue.toLowerCase()) != -1
     );
   });
-
   display(newdata);
 }
