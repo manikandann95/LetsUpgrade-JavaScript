@@ -35,19 +35,16 @@ let friends = [
 function display(myarray)
 {
  	let tabledata= "";
-	let srno = 1;
-
-	myarray.forEach(function(fri){
+	myarray.forEach(function(fri,index){
 				let currentrow=`<tr>
-				<td>${srno}</td>
+				<td>${index+1}</td>
 				<td>${fri.name}</td>
 				<td>${fri.age}</td>
 				<td>${fri.city}</td>
 				<td>${fri.salary}</td>
-				<td><button>Delete</button></td>
+				<td><button onclick="del(${index})">Delete</button></td>
 				</tr>` ;
 	tabledata += currentrow;
-	srno++;
 	});
 	document.getElementById("tdata").innerHTML= tabledata;
 }
@@ -70,5 +67,6 @@ function searchByCity(){
 	display(newdata);
 }
 function del(index){
-	friends.
+	friends.splice(index,1);
+	display(myarray);
 }
