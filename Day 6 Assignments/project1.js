@@ -68,5 +68,5 @@ function searchByCity(){
 }
 function del(index){
 	friends.splice(index,1);
-	display(myarray);
+	display(friends);
 }
